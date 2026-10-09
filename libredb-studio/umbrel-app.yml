@@ -5,8 +5,13 @@ storage:
 name: LibreDB Studio
 tagline: Self-hosted SQL IDE you open in a browser
 category: developer
-version: "0.18.1"
+version: "0.18.2"
 port: 8547
+icon: https://raw.githubusercontent.com/libredb/libredb-studio/0.18.2/public/logo.svg
+gallery:
+  - https://raw.githubusercontent.com/libredb/umbrel-app-store/main/libredb-studio/gallery/1.jpg
+  - https://raw.githubusercontent.com/libredb/umbrel-app-store/main/libredb-studio/gallery/2.jpg
+  - https://raw.githubusercontent.com/libredb/umbrel-app-store/main/libredb-studio/gallery/3.jpg
 description: >-
   LibreDB Studio is an open source database IDE you run on your own server and
   use from a browser. Nothing is installed on anyone's laptop, and the database
@@ -14,39 +19,52 @@ description: >-
   nothing is held back.
 
 
-  It ships 27 engine drivers of its own: PostgreSQL, MySQL, Oracle, Db2,
+  It ships 27 engine drivers of its own: PostgreSQL, MySQL, Oracle, Db2 LUW,
   SQL Server, SQLite, libSQL, DuckDB, MongoDB, Redis, Couchbase, ClickHouse,
-  Druid, Trino, Cassandra, Elasticsearch, OpenSearch, Prometheus, Kafka, etcd,
-  Neo4j, Milvus, Qdrant, InfluxDB and Databend. Another 28 engines speak one of
-  those wire protocols and connect through the same drivers, among them TiDB,
-  MariaDB, CockroachDB, TimescaleDB, Valkey, ScyllaDB and Redpanda. That is
-  55 reachable engines in total.
+  Druid, Elasticsearch, OpenSearch, Trino, Databend, Apache Cassandra,
+  Prometheus, Apache Kafka, etcd, Neo4j, Milvus, Qdrant, InfluxDB (InfluxQL),
+  InfluxDB 3 (SQL) and Oxia. Another 27 engines speak one of those wire
+  protocols and connect through the same drivers, among them MariaDB, TiDB,
+  CockroachDB, TimescaleDB, Citus, YugabyteDB, Valkey, ScyllaDB, StarRocks,
+  Apache Doris, Vitess, OceanBase and Redpanda. That is 54 reachable engines
+  in total.
 
 
-  The editor has completion and an EXPLAIN plan view, the object browser shows
-  tables, sizes, indexes and foreign keys, and there is schema comparison, an ER
+  The editor has completion and an EXPLAIN plan view, results can be charted or
+  pivoted without leaving the tab, and columns the app reads as personal data
+  are masked in the grid until you unmask them. The object browser shows tables,
+  sizes, indexes and foreign keys, and there is schema comparison, an ER
   diagram, a session and slow query monitor, and a full query audit trail. OIDC
   single sign on and role based access control are in the free build.
 
 
   One thing worth saying before you connect it to something: speaking the same
-  wire protocol is not the same as having the same catalog. We ran all 28
-  wire compatible engines in Docker and tested the same 15 screens on each.
-  Eighteen answered on every screen, ten answered in part, usually missing row
-  counts, sizes and the monitoring panels. The connection works, the screen can
-  come up empty. The repository lists this engine by engine.
+  wire protocol is not the same as having the same catalog. We ran all 27 wire
+  compatible engines in Docker and tested the same screens on each. Eighteen
+  answered on every screen, nine answered in part, usually missing row counts,
+  sizes and the monitoring panels. The connection works, the screen can come up
+  empty. The repository lists this engine by engine.
 
 
-  Also worth knowing: the interface is English only for now, and ten of the 27
-  drivers are read only, three because the query language has no UPDATE and
-  seven because we decided so.
+  Also worth knowing: the interface is English only for now, and eleven of the
+  27 drivers are read only. Three of those because their own query language has
+  no UPDATE at all (Druid, Elasticsearch, OpenSearch), and eight because Studio
+  only ever reads them (Prometheus, Apache Kafka, Neo4j, Milvus, Qdrant, Oxia
+  and the two InfluxDB connection types).
 dependencies: []
 releaseNotes: >-
-  0.18.1. The 0.18.0 release added seven engines (etcd, Oxia, Db2, Neo4j,
-  Qdrant, Milvus and InfluxDB) and local accounts with passkey sign in when
-  the store is SQLite or PostgreSQL. It also fixed a flaw of ours: with OIDC
-  configured, a session could be accepted without going through the provider.
-  That affected 0.7.0 through 0.17.0. If you run an older build, update.
+  0.18.2 is a patch release. Databend shows its official icon, a new connection
+  starts unlabelled instead of Local, Generate Test Data leaves foreign keys out
+  and keeps unique values distinct, and a Source tab re-reads its object when
+  you open it again. The rest is a run of fixes across PostgreSQL and its
+  relatives, the wire compatible engines, the MySQL family, MongoDB, Redis and
+  Oracle, most of them from community contributors. There is no security fix in
+  this release and nothing to do before upgrading.
+
+
+  If you are coming from a build older than 0.18.0, read that release first: it
+  fixed a flaw of ours where, with OIDC configured, a session could be accepted
+  without going through the provider. That affected 0.7.0 through 0.17.0.
 path: ""
 defaultUsername: ""
 defaultPassword: ""
