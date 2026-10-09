@@ -1,0 +1,58 @@
+manifestVersion: 1
+id: libredb-studio
+storage:
+  dataRoot: data
+name: LibreDB Studio
+tagline: Self-hosted SQL IDE you open in a browser
+category: developer
+version: "0.18.1"
+port: 8547
+description: >-
+  LibreDB Studio is an open source database IDE you run on your own server and
+  use from a browser. Nothing is installed on anyone's laptop, and the database
+  never has to be reachable from the internet. MIT licensed, no paid tier,
+  nothing is held back.
+
+
+  It ships 27 engine drivers of its own: PostgreSQL, MySQL, Oracle, Db2,
+  SQL Server, SQLite, libSQL, DuckDB, MongoDB, Redis, Couchbase, ClickHouse,
+  Druid, Trino, Cassandra, Elasticsearch, OpenSearch, Prometheus, Kafka, etcd,
+  Neo4j, Milvus, Qdrant, InfluxDB and Databend. Another 28 engines speak one of
+  those wire protocols and connect through the same drivers, among them TiDB,
+  MariaDB, CockroachDB, TimescaleDB, Valkey, ScyllaDB and Redpanda. That is
+  55 reachable engines in total.
+
+
+  The editor has completion and an EXPLAIN plan view, the object browser shows
+  tables, sizes, indexes and foreign keys, and there is schema comparison, an ER
+  diagram, a session and slow query monitor, and a full query audit trail. OIDC
+  single sign on and role based access control are in the free build.
+
+
+  One thing worth saying before you connect it to something: speaking the same
+  wire protocol is not the same as having the same catalog. We ran all 28
+  wire compatible engines in Docker and tested the same 15 screens on each.
+  Eighteen answered on every screen, ten answered in part, usually missing row
+  counts, sizes and the monitoring panels. The connection works, the screen can
+  come up empty. The repository lists this engine by engine.
+
+
+  Also worth knowing: the interface is English only for now, and ten of the 27
+  drivers are read only, three because the query language has no UPDATE and
+  seven because we decided so.
+dependencies: []
+releaseNotes: >-
+  0.18.1. The 0.18.0 release added seven engines (etcd, Oxia, Db2, Neo4j,
+  Qdrant, Milvus and InfluxDB) and local accounts with passkey sign in when
+  the store is SQLite or PostgreSQL. It also fixed a flaw of ours: with OIDC
+  configured, a session could be accepted without going through the provider.
+  That affected 0.7.0 through 0.17.0. If you run an older build, update.
+path: ""
+defaultUsername: ""
+defaultPassword: ""
+developer: LibreDB
+website: https://libredb.org
+repo: https://github.com/libredb/libredb-studio
+support: https://github.com/libredb/libredb-studio/issues
+submitter: LibreDB
+submission: https://github.com/libredb/umbrel-app-store
