@@ -32,25 +32,27 @@ description: >-
 
   The editor has completion and an EXPLAIN plan view, results can be charted or
   pivoted without leaving the tab, and columns the app reads as personal data
-  are masked in the grid until you unmask them. The object browser shows tables,
-  sizes, indexes and foreign keys, and there is schema comparison, an ER
-  diagram, a session and slow query monitor, and a full query audit trail. OIDC
-  single sign on and role based access control are in the free build.
+  are masked in the grid until you unmask them. On the SQL engines the object
+  browser shows tables, sizes, indexes and foreign keys, and there is schema comparison, an ER
+  diagram, and a session and slow query monitor. Sign ins, admin actions and
+  agent and MCP runs go to an audit log, and your own query history sits beside
+  it. OIDC single sign on and role based access control ship with it.
 
 
-  One thing worth saying before you connect it to something: speaking the same
-  wire protocol is not the same as having the same catalog. We ran all 27 wire
-  compatible engines in Docker and tested the same screens on each. Eighteen
-  answered on every screen, nine answered in part, usually missing row counts,
-  sizes and the monitoring panels. The connection works, the screen can come up
+  Speaking the same wire protocol is not the same as having the same catalog.
+  We ran all 27 wire compatible engines in Docker and tested the same screens on
+  each. Eighteen answered on every screen, though a few of those publish row
+  counts or sizes you should not trust, and nine answered in part, usually
+  missing row counts, sizes and the monitoring panels. The connection works, the screen can come up
   empty. The repository lists this engine by engine.
 
 
-  Also worth knowing: the interface is English only for now, and ten of the
-  27 drivers are read only. Three of those because their own query language has
-  no UPDATE at all (Druid, Elasticsearch, OpenSearch), and seven because Studio
-  only ever reads them (Prometheus, Apache Kafka, Neo4j, Qdrant, Oxia and the
-  two InfluxDB connection types).
+  The interface is English only for now, and ten of the 27 drivers are read
+  only. Three because the SQL endpoint they expose cannot change rows: none of
+  Druid, Elasticsearch or OpenSearch has UPDATE in its grammar, and the write
+  statements Druid and OpenSearch do have are refused by the endpoint Studio
+  talks to. Seven because Studio only ever reads them: Prometheus, Apache Kafka,
+  Neo4j, Qdrant, Oxia and the two InfluxDB drivers.
 dependencies: []
 releaseNotes: >-
   0.18.2 is a patch release. Databend shows its official icon, a new connection
