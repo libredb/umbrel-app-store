@@ -46,11 +46,11 @@ description: >-
   empty. The repository lists this engine by engine.
 
 
-  Also worth knowing: the interface is English only for now, and eleven of the
+  Also worth knowing: the interface is English only for now, and ten of the
   27 drivers are read only. Three of those because their own query language has
-  no UPDATE at all (Druid, Elasticsearch, OpenSearch), and eight because Studio
-  only ever reads them (Prometheus, Apache Kafka, Neo4j, Milvus, Qdrant, Oxia
-  and the two InfluxDB connection types).
+  no UPDATE at all (Druid, Elasticsearch, OpenSearch), and seven because Studio
+  only ever reads them (Prometheus, Apache Kafka, Neo4j, Qdrant, Oxia and the
+  two InfluxDB connection types).
 dependencies: []
 releaseNotes: >-
   0.18.2 is a patch release. Databend shows its official icon, a new connection
